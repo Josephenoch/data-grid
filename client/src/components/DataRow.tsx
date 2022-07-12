@@ -1,5 +1,5 @@
 import React, { FC, Dispatch, SetStateAction, useState } from 'react'
-import { data } from '../interfaces'
+import { data } from '../interfaces'    
 
 interface Props{
     last?:boolean,
@@ -11,7 +11,7 @@ interface Props{
 const DataRow:FC<Props> = ({last, data, width, setWidth}) => {
     const [height, setHeight] = useState<number>(100)
     const styles={
-        last:last?"rounded-b-lg":"border-b-[1px]"
+        last:last?"":"border-b-[1px]"
     }
 
     const handler = (mouseDownEvent:any) => {
@@ -31,7 +31,7 @@ const DataRow:FC<Props> = ({last, data, width, setWidth}) => {
         document.body.addEventListener("mouseup", onMouseUp, { once: true });
     };
     return(
-        <tr className={` hover:bg-gray-50 cursor-pointer flex px-3 text-sm justify-between w-full ${styles.last} border-blue-400 relative min-h-[85px] overflow-clip`} style={{ height: height }}>
+        <tr className={` hover:bg-gray-50 cursor-pointer items-center rounded-b-xs flex px-3 text-sm justify-between w-full ${styles.last} border-blue-400 relative min-h-[85px] overflow-y-clip overflow-x-visible`} style={{ height: height }}>
             <td className="w-5 h-5 text-center my-auto text-xs inline-block rounded-full border-[1px] border-blue-500 mr-2 text-blue-400">{data.name[0].toUpperCase()}</td>
             <span className="flex justify-between w-full">    
                 <td className="text-left flex items-center  w-[20%] py-1 px-2">{data.name}</td>
@@ -43,6 +43,13 @@ const DataRow:FC<Props> = ({last, data, width, setWidth}) => {
                 </span>
             </span>
             <button className="absolute bottom-0 w-2 h-2 inline-block cursor-nw-resize right-0 translate-x-[50%] translate-y-[50%]" type="button" onMouseDown={(e)=>handler(e)}></button>
+            <span className="absolute flex h-7 rounded-full active:scale-90 hover:scale-105 duration-400 transition-all ease-linear hover:bg-gray-200 w-7 items-center justify-center -left-8">
+                <img src="/trash.svg"alt="trash icon" className="w-5"/>
+            </span>
+            <span  className="absolute flex h-7 rounded-full active:scale-90 hover:scale-105 duration-400 transition-all ease-linear hover:bg-gray-200 w-7 items-center justify-center -right-8">
+                <img src="/edit.svg"alt="trash icon" className="w-5"/>
+            </span>
+
         </tr>
     )
     
