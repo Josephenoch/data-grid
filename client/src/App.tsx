@@ -1,16 +1,13 @@
 import React,{FC} from 'react';
-import DataRow from './components/DataRow';
+import DataGrid from './components/DataGrid';
 import "./index.css"
-
+import fakeData from './fakeData';
 const App:FC= ()=>  {
-  return (
-    <div className="flex justify-center">
-      <div className="w-[90%] flex justify-center mt-10">
-        <table className="flex w-full rounded-lg flex-col border-[1px] border-gray-400"> 
-          <DataRow heading/>
-          <DataRow/>
 
-        </table>
+  return (
+    <div className="flex justify-center text-gray-500">
+      <div className="w-[90%] flex justify-center mt-10">
+        <DataGrid data={fakeData}/>
       </div>
     </div>
   );
