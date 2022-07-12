@@ -1,30 +1,52 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch, SetStateAction, useState } from 'react'
 import { data } from '../interfaces'
 
 interface Props{
     last?:boolean,
-    data:data
+    data:data,
+    width:number,
+    setWidth:Dispatch<SetStateAction<number>>
 }
 
-const DataRow:FC<Props> = ({last,data}) => {
+const DataRow:FC<Props> = ({last, data, width, setWidth}) => {
+    const [height, setHeight] = useState<number>(100)
     const styles={
-        last:last?"":"border-b-[1px]"
+        last:last?"rounded-b-lg":"border-b-[1px]"
     }
+
+    const handler = (mouseDownEvent:any) => {
+        const startSize = {x:width, y:height};
+        const startPosition ={x: mouseDownEvent.pageX, y:mouseDownEvent.pageY};
+        
+        
+        function onMouseMove(mouseMoveEvent:any) {
+        setWidth(currentValue => startSize.x - startPosition.x + mouseMoveEvent.pageX);
+        setHeight(currentValue => startSize.y - startPosition.y + mouseMoveEvent.pageY);}
+        
+        function onMouseUp() {
+        document.body.removeEventListener("mousemove", onMouseMove);
+        }
+        
+        document.body.addEventListener("mousemove", onMouseMove);
+        document.body.addEventListener("mouseup", onMouseUp, { once: true });
+    };
     return(
-        <tr className={`flex px-3 text-sm justify-between w-full ${styles.last} border-blue-400`}>
-            <td className="w-5 h-5 text-center my-auto text-xs inline-block rounded-full border-[1px] border-blue-500 mr-2">N</td>
+        <tr className={` hover:bg-gray-50 cursor-pointer flex px-3 text-sm justify-between w-full ${styles.last} border-blue-400 relative min-h-[85px] overflow-clip`} style={{ height: height }}>
+            <td className="w-5 h-5 text-center my-auto text-xs inline-block rounded-full border-[1px] border-blue-500 mr-2 text-blue-400">{data.name[0].toUpperCase()}</td>
             <span className="flex justify-between w-full">    
-                <td className="text-left flex items-center  border-l-[1px] border-l-blue-400 w-[20%] p-2">{data.name}</td>
-                <td className="inline-block text-left  border-l-[1px] border-l-blue-400 w-[40%] p-2">{data.description}</td>
+                <td className="text-left flex items-center  w-[20%] py-1 px-2">{data.name}</td>
+                <td className="inline-block text-left  w-[40%] py-1 px-2">{data.description}</td>
 
                 <span className="flex justify-between w-[40%]">
-                    <td className="inline-block text-left border-l-[1px] border-l-blue-400 w-[60%] p-2">{data.age}</td>
-                    <td className="inline-block text-left  border-l-[1px] border-l-blue-400 w-[40%] p-2">{data.pay}</td>
+                    <td className="inline-block text-left my-auto w-[60%] py-1 px-2">{data.age}</td>
+                    <td className="inline-block text-left my-auto w-[40%] py-1 px-2">{data.pay}</td>
                 </span>
             </span>
+            <button className="absolute bottom-0 w-2 h-2 inline-block cursor-nw-resize right-0 translate-x-[50%] translate-y-[50%]" type="button" onMouseDown={(e)=>handler(e)}></button>
         </tr>
     )
     
 }
 
 export default DataRow
+
