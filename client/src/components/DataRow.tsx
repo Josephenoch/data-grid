@@ -2,13 +2,15 @@ import React, { FC, Dispatch, SetStateAction, useState } from 'react'
 import { data } from '../interfaces'    
 
 interface Props{
+    id:number,
     last?:boolean,
     data:data,
     width:number,
-    setWidth:Dispatch<SetStateAction<number>>
+    setWidth:Dispatch<SetStateAction<number>>,
+    deleteData(id:number):void
 }
 
-const DataRow:FC<Props> = ({last, data, width, setWidth}) => {
+const DataRow:FC<Props> = ({id, last, data, width, setWidth, deleteData}) => {
     const [height, setHeight] = useState<number>(100)
     const styles={
         last:last?"":"border-b-[1px]"
@@ -43,7 +45,7 @@ const DataRow:FC<Props> = ({last, data, width, setWidth}) => {
                 </span>
             </span>
             <button className="absolute bottom-0 w-2 h-2 inline-block cursor-nw-resize right-0 translate-x-[50%] translate-y-[50%]" type="button" onMouseDown={(e)=>handler(e)}></button>
-            <span className="absolute flex h-7 rounded-full active:scale-90 hover:scale-105 duration-400 transition-all ease-linear hover:bg-gray-200 w-7 items-center justify-center -left-8">
+            <span className="absolute flex h-7 rounded-full active:scale-90 hover:scale-105 duration-400 transition-all ease-linear hover:bg-gray-200 w-7 items-center justify-center -left-8" onClick={()=>deleteData(id)}>
                 <img src="/trash.svg"alt="trash icon" className="w-5"/>
             </span>
             <span  className="absolute flex h-7 rounded-full active:scale-90 hover:scale-105 duration-400 transition-all ease-linear hover:bg-gray-200 w-7 items-center justify-center -right-8">
