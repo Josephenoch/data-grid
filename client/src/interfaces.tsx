@@ -1,5 +1,6 @@
 export interface data{
-    name:string,
+    fName:string,
+    lName:string,
     description:string,
     age:number,
     pay:number

@@ -8,12 +8,14 @@ interface Props{
     data:data[],
     width:number,
     setWidth:Dispatch<SetStateAction<number>>,
-    editData(id:number, newValue:data):void,
-    deleteData(id:number):void
+    deleteData(id:number):void,
+    setId:Dispatch<SetStateAction<number|null>>
+    handleData(newValue:data, id?:number):void,
+    setInputData:Dispatch<SetStateAction<data>>
 
 }
 
-const DataGrid:FC<Props> = ({data, width, setWidth, editData, deleteData}) => {
+const DataGrid:FC<Props> = ({data, width, setWidth, handleData, setInputData, setId, deleteData}) => {
   const styles = {
     noData:data.length<1&&"items-center justify-center" 
   }
@@ -22,13 +24,16 @@ const DataGrid:FC<Props> = ({data, width, setWidth, editData, deleteData}) => {
         <DataHead/>
         {data.map((datum,index,arr)=>
             <DataRow 
-                key={index} 
-                id={index}
-                data={datum} 
-                last={index===arr.length-1}
-                width={width}
-                setWidth={setWidth}
-                deleteData={deleteData}
+                key = {index} 
+                id = {index}
+                data = {datum} 
+                last = {index === arr.length-1}
+                width = {width}
+                setWidth = {setWidth}
+                deleteData = {deleteData}
+                setId = {setId}
+                handleData = {handleData}
+                setInputData = {setInputData}
             />
         )} 
         {
