@@ -2,56 +2,56 @@ import { data } from "./interfaces"
 
 const fakeData:data[] = [
     {
-        fName:"Jumoke",
-        lName:"Stephen",
+        firstName:"Jumoke",
+        lastName:"Stephen",
         description:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti reiciendis minus mollitia molestias illo recusandae praesentium quisquam placeat! Reprehenderit earum quam in reiciendis, perferendis nesciunt inventore laboriosam obcaecati quae sapiente.",
         age:40,
         pay:500
 
     },
     {
-        fName:"Jumoke",
-        lName:"Stephen",
+        firstName:"Jumoke",
+        lastName:"Stephen",
         description:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti reiciendis minus mollitia molestias illo recusandae praesentium quisquam placeat! Reprehenderit earum quam in reiciendis, perferendis nesciunt inventore laboriosam obcaecati quae sapiente.",
         age:40,
         pay:500
 
     },
     {
-        fName:"Fayi",
-        lName:"Gbobodo",
+        firstName:"Fayi",
+        lastName:"Gbobodo",
         description:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti reiciendis minus mollitia molestias illo recusandae praesentium quisquam placeat! Reprehenderit earum quam in reiciendis, perferendis nesciunt inventore laboriosam obcaecati quae sapiente.",
         age:40,
         pay:500
 
     },
     {
-        fName:"Sandra",
-        lName:"Ossi",
+        firstName:"Sandra",
+        lastName:"Ossi",
         description:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti reiciendis minus mollitia molestias illo recusandae praesentium quisquam placeat! Reprehenderit earum quam in reiciendis, perferendis nesciunt inventore laboriosam obcaecati quae sapiente.",
         age:40,
         pay:500
 
     },
     {
-        fName:"Sandra",
-        lName:"Ossi",
+        firstName:"Sandra",
+        lastName:"Ossi",
         description:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti reiciendis minus mollitia molestias illo recusandae praesentium quisquam placeat! Reprehenderit earum quam in reiciendis, perferendis nesciunt inventore laboriosam obcaecati quae sapiente.",
         age:40,
         pay:500
 
     },
     {
-        fName:"Sandra",
-        lName:"Ossi",
+        firstName:"Sandra",
+        lastName:"Ossi",
         description:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti reiciendis minus mollitia molestias illo recusandae praesentium quisquam placeat! Reprehenderit earum quam in reiciendis, perferendis nesciunt inventore laboriosam obcaecati quae sapiente.",
         age:40,
         pay:500
 
     },
     {
-        fName:"Sandra",
-        lName:"Ossi",
+        firstName:"Sandra",
+        lastName:"Ossi",
         description:"Lorem ipsum, dolor sit amet consectetur adipisicing elit. Deleniti reiciendis minus mollitia molestias illo recusandae praesentium quisquam placeat! Reprehenderit earum quam in reiciendis, perferendis nesciunt inventore laboriosam obcaecati quae sapiente.",
         age:40,
         pay:500
@@ -60,8 +60,8 @@ const fakeData:data[] = [
 ]
 
 export const emptyData:data = {
-    fName:"",
-    lName:"",
+    firstName:"",
+    lastName:"",
     description:"",
     age:0,
     pay:0

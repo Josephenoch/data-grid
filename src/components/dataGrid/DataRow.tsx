@@ -1,5 +1,5 @@
 import React, { FC, Dispatch, SetStateAction, useState } from 'react'
-import { data } from '../interfaces'    
+import { data } from '../../interfaces'    
 
 interface Props{
     id:number,
@@ -52,9 +52,9 @@ const DataRow:FC<Props> = (
     }
     return(
         <tr className={` hover:bg-gray-50 cursor-pointer items-center rounded-b-xs flex px-3 text-sm justify-between w-full ${styles.last} border-blue-400 relative min-h-[85px] overflow-y-clip overflow-x-visible`} style={{ height: height }}>
-            <td className="w-5 h-5 text-center my-auto text-xs inline-block rounded-full border-[1px] border-blue-500 mr-2 text-blue-400">{data.fName[0].toUpperCase()}</td>
+            <td className="w-5 h-5 text-center my-auto text-xs inline-block rounded-full border-[1px] border-blue-500 mr-2 text-blue-400">{data.firstName[0].toUpperCase()}</td>
             <span className="flex justify-between w-full">    
-                <td className="text-left flex items-center  w-[20%] py-1 px-2">{`${data.fName} ${data.lName}`}</td>
+                <td className="text-left flex items-center  w-[20%] py-1 px-2">{`${data.firstName} ${data.lastName}`}</td>
                 <td className="inline-block text-left  w-[40%] py-1 px-2">{data.description}</td>
 
                 <span className="flex justify-between w-[40%]">

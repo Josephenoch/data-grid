@@ -1,6 +1,6 @@
 import React, { FC, Dispatch, SetStateAction } from 'react'
 
-import { data} from '../interfaces'
+import { data} from '../../interfaces'
 import DataHead from './DataHead'
 import DataRow from './DataRow'
 
@@ -37,7 +37,6 @@ const DataGrid:FC<Props> = ({data, width, setWidth, handleData, setInputData, se
             />
         )} 
         {
-        
         data.length<1&&<span className="py-5">No data</span>
         }
     </table>

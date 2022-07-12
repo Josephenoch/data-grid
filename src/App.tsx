@@ -1,9 +1,9 @@
 import React,{FC, useState} from 'react';
-import DataGrid from './components/DataGrid';
+import DataGrid from './components/dataGrid/DataGrid';
 import "./index.css"
 import fakeData, { emptyData } from './fakeData';
 import { data } from './interfaces';
-import DataEntry from './components/DataEntry';
+import DataEntry from './components/dataGrid/DataEntry';
 
 const App:FC= ()=>  {
   
