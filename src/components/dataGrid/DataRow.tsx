@@ -7,8 +7,8 @@ interface Props{
     data:data,
     width:number,
     setWidth:Dispatch<SetStateAction<number>>,
-    deleteData(id:number):void,
-    setId:Dispatch<SetStateAction<number|null>>,
+    deleteData(id:string):void,
+    setId:Dispatch<SetStateAction<string>>,
     handleData(newValue:data, id?:number):void,
     setInputData:Dispatch<SetStateAction<data>>
 }
@@ -47,7 +47,7 @@ const DataRow:FC<Props> = (
         document.body.addEventListener("mouseup", onMouseUp, { once: true });
     };
     const handleEdit = () =>{
-        setId(id)
+        setId(data._id)
         setInputData({...data})
     }
     return(
@@ -63,7 +63,7 @@ const DataRow:FC<Props> = (
                 </span>
             </span>
             <button className="absolute bottom-0 w-2 h-2 inline-block cursor-nw-resize right-0 translate-x-[50%] translate-y-[50%]" type="button" onMouseDown={(e)=>handler(e)}></button>
-            <span className="absolute flex h-7 rounded-full active:scale-90 hover:scale-105 duration-400 transition-all ease-linear hover:bg-gray-200 w-7 items-center justify-center -left-8" onClick={()=>deleteData(id)}>
+            <span className="absolute flex h-7 rounded-full active:scale-90 hover:scale-105 duration-400 transition-all ease-linear hover:bg-gray-200 w-7 items-center justify-center -left-8" onClick={()=>deleteData(data._id)}>
                 <img src="/trash.svg"alt="trash icon" className="w-5"/>
             </span>
             <span  className="absolute flex h-7 rounded-full active:scale-90 hover:scale-105 duration-400 transition-all ease-linear hover:bg-gray-200 w-7 items-center justify-center -right-8" onClick={handleEdit}>

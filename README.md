@@ -11,11 +11,10 @@ This App is a Minimal Data Grid
 ## Installation
 
 - Clone the repo
-- Navigate to the api folder and run `npm install`
-- Then, run `npm run dev`, you've successful ran the api/server
-- Leave the api folder and navigate to the client folder, then run `npm install`
+- Navigate to the client folder, then run `npm install`
 - After that, run `npm start`
-- You've successfully installed/started the development environments
+- You've successfully installed/started the development environment
+- To get the api/server code visti [Server]("https://github.com/josephenoch/data-grid-api")
 
 ## Requirements
 - ### Mandatory
@@ -27,6 +26,8 @@ This App is a Minimal Data Grid
   - Auto sizes columns based on cell content
   - Edit cell content
   - Ability to delete rows
+  - Ability to resize columns by dragging
+  - Add, delete, update and read data from and to the database
 
 ## License
 

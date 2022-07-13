@@ -32,8 +32,8 @@ const DataEntry:FC<Props> = ({handleData, inputData, setInputData}) => {
   return (
     <form ref={formRef} className="w-full flex flex-col">
         <div className="w-full flex justify-between py-4 ">
-            <Input required width={35} value={inputData.firstName} placeholder="Employee's First Name" type="text" name="fName" onChange={(e:ChangeEvent)=>handleChange(e)}/>
-            <Input required width={35} value={inputData.lastName} placeholder="Employee's Last Name" type="text" name="lName" onChange={(e:ChangeEvent)=>handleChange(e)}/>
+            <Input required width={35} value={inputData.firstName} placeholder="Employee's First Name" type="text" name="firstName" onChange={(e:ChangeEvent)=>handleChange(e)}/>
+            <Input required width={35} value={inputData.lastName} placeholder="Employee's Last Name" type="text" name="lastName" onChange={(e:ChangeEvent)=>handleChange(e)}/>
             <Input required width={12} value={inputData.age} placeholder="Employee's Age" name="age" type="number" onChange={(e:ChangeEvent)=>handleChange(e)}/>
             <Input required width={12} value={inputData.pay} placeholder="Employee's Pay" name="pay" type="number" onChange={(e:ChangeEvent)=>handleChange(e)}/>
         </div>

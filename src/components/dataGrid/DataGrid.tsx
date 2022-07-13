@@ -8,20 +8,24 @@ interface Props{
     data:data[],
     width:number,
     setWidth:Dispatch<SetStateAction<number>>,
-    deleteData(id:number):void,
-    setId:Dispatch<SetStateAction<number|null>>
+    deleteData(id:string):void,
+    setId:Dispatch<SetStateAction<string>>
     handleData(newValue:data, id?:number):void,
-    setInputData:Dispatch<SetStateAction<data>>
+    setInputData:Dispatch<SetStateAction<data>>,
+    sortData(num:number):void
 
 }
 
-const DataGrid:FC<Props> = ({data, width, setWidth, handleData, setInputData, setId, deleteData}) => {
+const DataGrid:FC<Props> = ({data, width, sortData, setWidth, handleData, setInputData, setId, deleteData}) => {
   const styles = {
     noData:data.length<1&&"items-center justify-center" 
   }
   return (
     <table className={`${styles.noData} flex w-full rounded-lg flex-col border-[1px] border-blue-400 min-w-[800px]`} style={{width:width}} >
-        <DataHead/>
+        <thead className="w-full flex">
+          <DataHead sortData={sortData}/>
+        </thead>
+        <tbody className='w-full flex flex-col'>
         {data.map((datum,index,arr)=>
             <DataRow 
                 key = {index} 
@@ -37,8 +41,12 @@ const DataGrid:FC<Props> = ({data, width, setWidth, handleData, setInputData, se
             />
         )} 
         {
-        data.length<1&&<span className="py-5">No data</span>
+        data.length<1&&<tr className="py-5">
+          <td>No data</td> 
+        </tr>
         }
+        </tbody>
+        
     </table>
   )
 }
