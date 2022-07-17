@@ -96,13 +96,6 @@ const App:FC= ()=>  {
     })
   }
 
-  // js for smooth scrolll
-  window.scroll({
-    top: 0, 
-    left: 0, 
-    behavior: 'smooth'
-  });
-
   // tailwind css classes
   const styles={
     width:`min-w-[${width}]`

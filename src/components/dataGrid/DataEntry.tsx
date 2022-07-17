@@ -1,6 +1,5 @@
 import React, { FC, useRef, ChangeEvent, Dispatch, SetStateAction } from 'react'
-import Input from '../generalComponents/Input'
-import Button from '../generalComponents/Button'
+import { Input, Button } from '../generalComponents'
 import { data } from '../../interfaces'
 import { emptyData } from '../../fakeData'
 
